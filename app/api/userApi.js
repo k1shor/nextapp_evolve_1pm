@@ -40,5 +40,21 @@ export const isAuthenticated = async () => {
 }
 
 
+export const getAllUsers = () => {
+    return fetch(`${API}/userlist`)
+        .then(response => response.json())
+        .catch(error => console.log(error))
+}
 
-
+export const change_role = (id, role, token) => {
+    return fetch(`${API}/changerole/${id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ role })
+    })
+        .then(response => response.json())
+        .catch(error => console.log(error))
+}

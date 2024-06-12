@@ -91,7 +91,7 @@ const page = () => {
                                 <td>{product.rating}</td>
                                 <td>{product.category?.category_name}</td>
                                 <td>
-                                    <Link href={`/admin/product/${product._id}`}>Update</Link>
+                                    <Link href={`/admin/products/${product._id}`}>Update</Link>
                                     <button className="bg-red-500 px-4 py-2 rounded-lg hover:shadow-2xl hover:bg-red-700" onClick={handleDelete(product._id)}>Remove</button>
                                 </td>
                             </tr>

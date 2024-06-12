@@ -5,6 +5,11 @@ export const getAllProducts = () => {
         .then(response => response.json())
         .catch(error => console.log(error))
 }
+export const getProduct = (id) => {
+    return fetch(`${API}/getproductdetails/${id}`)
+        .then(response => response.json())
+        .catch(error => console.log(error))
+}
 
 export const deleteProduct = (id, token) => {
     return fetch(`${API}/deleteproduct/${id}`, {
@@ -21,6 +26,18 @@ export const deleteProduct = (id, token) => {
 export const addProduct = (product, token) => {
     return fetch(`${API}/addnewproduct`,{
         method: "POST",
+        headers: {
+            "Authorization":`Bearer ${token}`
+        },
+        body: product
+    })
+    .then(response => response.json())
+    .catch(error => console.log(error))
+}
+
+export const updateProduct = (id, product, token) => {
+    return fetch(`${API}/updateproduct/${id}`,{
+        method: "PUT",
         headers: {
             "Authorization":`Bearer ${token}`
         },
